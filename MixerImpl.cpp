@@ -17,7 +17,7 @@ namespace ts{
         }
         explicit AudioSourceWrap(int sampleRate, int channelCount)
             : sample_rate_hz_(sampleRate)
-            , samples_per_channel_(sample_rate_hz_ / 50)
+            , samples_per_channel_(sample_rate_hz_ / 100)
             , number_of_channels_(channelCount)
         {
         }

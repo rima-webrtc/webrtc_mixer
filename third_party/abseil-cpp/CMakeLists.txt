@@ -46,9 +46,11 @@ if (POLICY CMP0091)
   cmake_policy(SET CMP0091 NEW)
 endif (POLICY CMP0091)
 
-project(absl LANGUAGES CXX)
+project(absl LANGUAGES CXX VERSION 20220623)
 include(CTest)
-
+set(CMAKE_CXX_FLAGS "-g") # 调试信息 set(CMAKE_CXX_FLAGS "-Wall") # 开启所有警告
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS}  -fPIC -O0 -Wall -g2 -ggdb")
 # Output directory is correct by default for most build setups. However, when
 # building Abseil as a DLL, it is important to have the DLL in the same
 # directory as the executable using it. Thus, we put all executables in a single
@@ -111,7 +113,7 @@ option(ABSL_BUILD_TESTING
   "If ON, Abseil will build all of Abseil's own tests." OFF)
 
 option(ABSL_USE_EXTERNAL_GOOGLETEST
-  "If ON, Abseil will assume that the targets for GoogleTest are already provided by the including project. This makes sense when Abseil is used with add_subproject." OFF)
+  "If ON, Abseil will assume that the targets for GoogleTest are already provided by the including project. This makes sense when Abseil is used with add_subdirectory." OFF)
 
 cmake_dependent_option(ABSL_FIND_GOOGLETEST
   "If ON, Abseil will use find_package(GTest) rather than assuming that GoogleTest is already provided by the including project."
@@ -172,17 +174,7 @@ endif()
 add_subdirectory(absl)
 
 if(ABSL_ENABLE_INSTALL)
-  # absl:lts-remove-begin(system installation is supported for LTS releases)
-  # We don't support system-wide installation
-  list(APPEND SYSTEM_INSTALL_DIRS "/usr/local" "/usr" "/opt/" "/opt/local" "c:/Program Files/${PROJECT_NAME}")
-  if(NOT DEFINED CMAKE_INSTALL_PREFIX OR CMAKE_INSTALL_PREFIX IN_LIST SYSTEM_INSTALL_DIRS)
-    message(WARNING "\
-  The default and system-level install directories are unsupported except in LTS \
-  releases of Abseil.  Please set CMAKE_INSTALL_PREFIX to install Abseil in your \
-  source or build tree directly.\
-    ")
-  endif()
-  # absl:lts-remove-end
+  
 
   # install as a subdirectory only
   install(EXPORT ${PROJECT_NAME}Targets
