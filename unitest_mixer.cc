@@ -84,6 +84,10 @@ for(int i=0; i< gcount_tts_size/framesize ;i++)
 int main(int argc, char* argv[]) {
   WebRtc_DeNoise("/home/fengmao/cowa_audio/webrtc_mixer/capture_NS_no_sample_2022.pcm","/home/fengmao/cowa_audio/webrtc_mixer/tts.pcm",
                  "../capture_tts_mix.pcm", 48000, 2);
+                   WebRtc_DeNoise("/home/fengmao/cowa_audio/webrtc_mixer/recorder_ns_1.pcm","/home/fengmao/cowa_audio/webrtc_mixer/tts.pcm",
+                 "../capture_tts_mix_ns_1.pcm", 48000, 2);
+                   WebRtc_DeNoise("/home/fengmao/cowa_audio/webrtc_mixer/recorder_ns_1_ns_1.pcm","/home/fengmao/cowa_audio/webrtc_mixer/tts.pcm",
+                 "../capture_tts_mix_ns_1_ns_1.pcm", 48000, 2);
   printf("�������棬�������...\n");
   return 0;
 }
