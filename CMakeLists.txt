@@ -79,7 +79,6 @@ AUX_SOURCE_DIRECTORY(. mixer)
 include_directories(.)
 include_directories(third_party/abseil-cpp)
 
-
 add_executable(unitest_mixer
 unitest_mixer.cc
 MixerImpl.cpp
@@ -87,6 +86,6 @@ ${mixer}
 )
 
 target_link_libraries(unitest_mixer 
-/home/fengmao/cowa_audio/webrtc_mixer/libts_mixer.a
+/home/fengmao/cowa_audio/backup_git/webrtc_mixer/libts_mixer.a
 pthread
 )

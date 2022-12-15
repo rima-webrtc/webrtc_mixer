@@ -69,7 +69,7 @@ for(int i=0; i< gcount_tts_size/framesize ;i++)
     data[0]+=framesize/2;
           data[1]+=framesize/2;
 }
-    std::cout<<"gcount_in_size: "<<gcount_in_size<<"mixlengthsize: "<<mixlengthsize<<std::endl;
+    std::cout<<" gcount_in_size: "<<gcount_in_size<<" mixlengthsize: "<<mixlengthsize<<std::endl;
     out_stream.write((char *)in_buffer+mixlengthsize, gcount_in_size-mixlengthsize);
 
 
@@ -82,12 +82,12 @@ for(int i=0; i< gcount_tts_size/framesize ;i++)
 }
 
 int main(int argc, char* argv[]) {
-  WebRtc_DeNoise("/home/fengmao/cowa_audio/webrtc_mixer/capture_NS_no_sample_2022.pcm","/home/fengmao/cowa_audio/webrtc_mixer/tts.pcm",
-                 "../capture_tts_mix.pcm", 48000, 2);
-                   WebRtc_DeNoise("/home/fengmao/cowa_audio/webrtc_mixer/recorder_ns_1.pcm","/home/fengmao/cowa_audio/webrtc_mixer/tts.pcm",
-                 "../capture_tts_mix_ns_1.pcm", 48000, 2);
-                   WebRtc_DeNoise("/home/fengmao/cowa_audio/webrtc_mixer/recorder_ns_1_ns_1.pcm","/home/fengmao/cowa_audio/webrtc_mixer/tts.pcm",
-                 "../capture_tts_mix_ns_1_ns_1.pcm", 48000, 2);
+  WebRtc_DeNoise("/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/capture_NS_no_sample_2022.pcm","/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/tts.pcm",
+                 "../lab1/capture_tts_mix.pcm", 48000, 2);
+                   WebRtc_DeNoise("/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/recorder_ns_1.pcm","/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/tts.pcm",
+                 "../lab1/capture_tts_mix_ns_1.pcm", 48000, 2);
+                   WebRtc_DeNoise("/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/recorder_ns_1_ns_1.pcm","/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/tts.pcm",
+                 "../lab1/capture_tts_mix_ns_1_ns_1.pcm", 48000, 2);
   printf("�������棬�������...\n");
   return 0;
 }
