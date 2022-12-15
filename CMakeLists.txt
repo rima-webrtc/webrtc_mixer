@@ -101,46 +101,14 @@ set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS}  -fPIC -O0 -Wall -g2 -ggdb")
 
 ADD_DEFINITIONS(-DWEBRTC_LINUX -DWEBRTC_POSIX -DWEBRTC_APM_DEBUG_DUMP=0)
 
-if(NOT CMAKE_SYSTEM_NAME MATCHES Windows)
-    ADD_DEFINITIONS(-DWEBRTC_POSIX)
-endif()
-
-if(CMAKE_SYSTEM_NAME MATCHES iOS)
-    message(==============now is iOS================)
-    ADD_DEFINITIONS(-DWEBRTC_IOS)
-    ADD_DEFINITIONS(-DWEBRTC_MAC)
-elseif(CMAKE_SYSTEM_NAME MATCHES Darwin)
-    message(==============now is Mac================)
-    ADD_DEFINITIONS(-DWEBRTC_MAC)
-elseif(CMAKE_SYSTEM_NAME MATCHES Windows)
-    message(==============now is Windows================)
-    ADD_DEFINITIONS(-DWEBRTC_WIN)
-    ADD_DEFINITIONS(-DNOMINMAX)
-    ADD_DEFINITIONS(-DWIN32_LEAN_AND_MEAN)
-elseif(CMAKE_SYSTEM_NAME MATCHES Android)
-    message(==============now is Android================)
-    ADD_DEFINITIONS(-DWEBRTC_LINUX)
-    ADD_DEFINITIONS(-DWEBRTC_ANDROID)
-elseif(CMAKE_SYSTEM_NAME MATCHES Linux)
-    message(==============now is linux================)
-    ADD_DEFINITIONS(-DWEBRTC_LINUX)
-endif()
-
 add_subdirectory(third_party/abseil-cpp)
-add_subdirectory(api)
-add_subdirectory(audio)
-add_subdirectory(modules)
-add_subdirectory(common_audio)
-add_subdirectory(rtc_base)
-add_subdirectory(system_wrappers)
 
-AUX_SOURCE_DIRECTORY(. 
+AUX_SOURCE_DIRECTORY(src/. 
 mixer)
 
 include_directories(.)
+include_directories(include/.)
 include_directories(third_party/abseil-cpp)
-
-
 
 add_executable(unitest_mixer
 unitest_mixer.cc
@@ -151,13 +119,6 @@ ${mixer}
 target_link_libraries(unitest_mixer 
 #/home/fengmao/cowa_audio/backup_git/webrtc_mixer/libts_mixer.a
 absl::throw_delegate absl::strings
-modules_audio_mixer
-rtc_base
-api
-audio
-modules_audio_process
-system_wrappers
-common_audio
 pthread
 )
 
