@@ -85,9 +85,9 @@ int main(int argc, char* argv[]) {
   WebRtc_DeNoise("/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/capture_NS_no_sample_2022.pcm","/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/tts.pcm",
                  "../lab1/capture_tts_mix.pcm", 48000, 2);
                    WebRtc_DeNoise("/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/recorder_ns_1.pcm","/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/tts.pcm",
-                 "../lab1/capture_tts_mix_ns_1.pcm", 48000, 2);
+                 "../lab1/recorder_tts_mix_ns_1.pcm", 48000, 2);
                    WebRtc_DeNoise("/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/recorder_ns_1_ns_1.pcm","/home/fengmao/cowa_audio/backup_git/webrtc_mixer/resource/tts.pcm",
-                 "../lab1/capture_tts_mix_ns_1_ns_1.pcm", 48000, 2);
+                 "../lab1/recorder_tts_mix_ns_1_ns_1.pcm", 48000, 2);
   printf("�������棬�������...\n");
   return 0;
 }
